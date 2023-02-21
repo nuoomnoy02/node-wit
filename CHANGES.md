@@ -1,12 +1,72 @@
+## v6.6.0 - Multi-responses in Composer
+
+- Multi-responses in Composer: `runComposerAudio()`, `.runComposer()` (and raw `.converse()` + `.event()`) now emit `response` events for intermediate responses, and run intermediate actions as well.
+- Bumped API version to `20230215`.
+
+## v6.5.1
+- Update uuid to version 9.0.0
+
+## v6.5.0 - Composer alpha integration
+
+- Composer integration: `.runComposerAudio()`, `.runComposer()` (and raw `.converse()` + `.event()`) + `actions` support
+- Bumped API version to `20220801`.
+- interactive now uses Composer for text inputs, use `!message` for `GET /message` and `!converse` for Composer audio inputs
+- added pizza example
+
+## v6.4.0
+
+- Add `POST /synthesize` integration.
+- Add `POST /dictation` integration.
+- New example using `synthesize()` and `dictation()`.
+
+## v6.3.0
+
+- `speech()` emits `partialUnderstanding` events to support live understanding.
+- `apiVersion` updated to `20220608` and its type is now a number.
+
+## Breaking changes
+
+- Bumped API version to `20220608`.
+- Emits `partialUnderstanding` events (live understanding support).
+- Updated `apiVersion` type from string to number.
+
+## v6.2.2
+
+- Fixes parsing for large HTTP chunks.
+
+## v6.2.1
+
+- Emits `partialTranscription` and `fullTranscription` events.
+- Shows microphone input feedback for `interactive`.
+- Includes `proxy` support for `speech()`.
+
+## v6.2.0
+
+Requires Node.js >= 6.17.1 to support ES6 directly.
+
+## v6.1.1
+
+- Basic `POST /speech` integration.
+- `!speech` support for interactive.
+
+## v6.1.0
+
+Bumped API version to `20210928`.
+Moved API version from `Accept` header to `v` HTTP parameter.
+Kaizens.
+
 ## v6.0.1
+
 Removed unused `request` dependency
 Updated various dependencies.
 
 ## v6.0.0
+
 Updated API version to latest: `20200513`.
 Browse the latest HTTP API documentation [here](https://wit.ai/docs/http/20200513#get__message_link).
 
 ## v5.0.0
+
 The most important change is the removal of `.converse()` and `.runActions()`. Follow the migration tutorial [here](https://github.com/wit-ai/wit-stories-migration-tutorial), or [read more here](https://wit.ai/blog/2017/07/27/sunsetting-stories).
 
 ### Breaking changes
@@ -16,6 +76,7 @@ The most important change is the removal of `.converse()` and `.runActions()`. F
 - updated wit-ai-basic-app-for-tests.zip for testing
 
 ## v4.3.0
+
 - `converse` and `runActions` are deprecated
 - `interactive` now calls `message`
 
@@ -46,7 +107,6 @@ We moved to a Promise-based API, instead of callbacks. This makes the code simpl
 
 See `./examples` to see how to use the new API.
 
-
 ### Breaking changes
 
 - `say` renamed to `send` to reflect that it deals with more than just text
@@ -61,6 +121,7 @@ See `./examples` to see how to use the new API.
 - allows for overriding API version, by setting `WIT_API_VERSION`
 
 ## v3.3.1
+
 - adding API versioning (defaults to `20160516`)
 - warns instead of throwing when validating actions
 - fixing null values when cloning context
